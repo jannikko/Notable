@@ -1,0 +1,83 @@
+@CHARSET "ISO-8859-1";
+
+.toggle-button {
+	-fx-text-fill: white;
+	-fx-font-family: "Arial Narrow";
+	-fx-font-weight: bold;
+	-fx-background-color: linear-gradient(#61a2b1, #2A5058);
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+
+.toggle-button:selected {
+	-fx-text-fill: white;
+	-fx-font-family: "Arial Narrow";
+	-fx-font-weight: bold;
+	-fx-background-color: linear-gradient(#3D8899, #2A5058);
+}
+
+.label {
+	-fx-background-color: linear-gradient(#467580, #376873);
+	-fx-text-fill: white;
+	-fx-font-weight: bold;
+	-fx-text-alignment: center;
+}
+
+.split-pane *.split-pane-divider {
+	-fx-padding: 0 1 0 1;
+}
+
+.button {
+	-fx-text-fill: white;
+	-fx-stroke-width: 5;
+	-fx-stroke: white;
+	-fx-font-family: "Arial Narrow";
+	-fx-font-weight: bold;
+	-fx-background-color: linear-gradient(#61a2b1, #2A5058);
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+
+.background {
+	-fx-background-color: #44464D
+}
+
+.background_dropshadow {
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+
+.list-cell {
+	-fx-text-fill: white; 
+	-fx-background-color: #44464D;
+	-fx-stroke: white;
+	-fx-stroke-width: 5;
+}
+
+.list-view {
+	-fx-background-color: #44464D
+}
+
+.list-cell:filled:hover {
+	-fx-background-color: #5A5C66; 
+	-fx-text-fill: white; 
+}
+
+.list-cell:filled:selected {
+	-fx-background-color: #5A5C66; 
+	-fx-text-fill: white; 
+}
+
+.text-area {
+	-fx-background-color: white;
+	-fx-text-fill: black;
+}
+
+.text-area .scroll-pane {
+	-fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .viewport {
+	-fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .content {
+	-fx-background-color: transparent;
+}

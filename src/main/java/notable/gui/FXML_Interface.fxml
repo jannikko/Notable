@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="root" prefHeight="800.0" prefWidth="1280.0" styleClass="background" stylesheets="@Interface.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="notable.gui.InterfaceController">
+   <children>
+      <SplitPane fx:id="splitpane" dividerPositions="0.21205007824726135" layoutX="252.0" layoutY="42.0" prefHeight="817.0" prefWidth="1280.0" styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="635.0" prefWidth="1004.0" SplitPane.resizableWithParent="false">
+               <children>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1004.0" AnchorPane.bottomAnchor="748.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TextField fx:id="searchField" disable="true" layoutX="79.0" layoutY="13.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="94.0" promptText="Search Notes..." />
+                        <Button fx:id="addNote_Button" alignment="CENTER" graphicTextGap="0.0" layoutX="225.0" layoutY="10.0" mnemonicParsing="false" onAction="#addNote" prefHeight="30.0" prefWidth="30.0" text="+">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="removeNote_Button" alignment="CENTER" disable="true" graphicTextGap="0.0" layoutX="189.0" layoutY="11.0" mnemonicParsing="false" onAction="#removeNote" prefHeight="30.0" prefWidth="30.0" text="-">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <ToggleButton fx:id="tags_togglebutton" disable="true" layoutX="8.0" layoutY="14.0" mnemonicParsing="false" onAction="#toggleTags" prefHeight="25.0" prefWidth="54.0" text="Tags" />
+                        <Button fx:id="goBack_Button" layoutX="222.0" layoutY="10.0" mnemonicParsing="false" onAction="#goBackToTags" prefHeight="30.0" prefWidth="30.0" text="&lt;" visible="false" />
+                     </children>
+                     <styleClass>
+                        <String fx:value="background" />
+                        <String fx:value="background_dropshadow" />
+                     </styleClass>
+                  </AnchorPane>
+                  <AnchorPane layoutY="50.0" prefHeight="710.0" prefWidth="268.0" styleClass="background">
+                     <children>
+                        <ListView fx:id="listOfNotes" onMousePressed="#noteChosen" prefHeight="748.0" prefWidth="268.0" visible="false" />
+                        <ListView fx:id="listOfTags" onMousePressed="#tagChosen" prefHeight="748.0" prefWidth="268.0" visible="false" />
+                        <Label fx:id="tagMode_label" alignment="CENTER" contentDisplay="CENTER" layoutY="717.0" prefHeight="30.0" prefWidth="268.0" visible="false">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children></AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="635.0" prefWidth="1004.0" styleClass="background">
+               <children>
+                  <AnchorPane id="searchbar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1004.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox alignment="CENTER" layoutX="357.0" layoutY="13.0" prefHeight="25.0" prefWidth="455.0" AnchorPane.leftAnchor="357.0" AnchorPane.rightAnchor="192.0">
+                           <children>
+                              <TextField fx:id="enteredTags" disable="true" nodeOrientation="LEFT_TO_RIGHT" onKeyPressed="#tagFieldKeyPressed" prefHeight="25.0" prefWidth="274.0" promptText="Set tags...">
+                                 <tooltip>
+                                    <Tooltip text="Example: tag1, tag2, ...">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Tooltip>
+                                 </tooltip>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <StackPane prefHeight="150.0" prefWidth="200.0">
+                                 <children>
+                                    <Text fx:id="tags_added_prompt" fill="WHITE" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="tags_animation" text="Tags saved !" wrappingWidth="106.13671875">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="notags_added_prompt" fill="WHITE" layoutX="50.0" layoutY="28.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No Tags entered!" wrappingWidth="106.13671875" />
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </children>
+                     <styleClass>
+                        <String fx:value="background" />
+                        <String fx:value="background_dropshadow" />
+                     </styleClass>
+                  </AnchorPane>
+                  <TextArea fx:id="noteText" layoutY="50.0" prefHeight="668.0" prefWidth="1004.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </TextArea>
+                  <Text fx:id="dateText" layoutX="824.0" layoutY="779.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="165.13671875" AnchorPane.bottomAnchor="15.2353515625" AnchorPane.rightAnchor="14.86328125">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+        </items>
+        
+      </SplitPane>
+   </children>
+ 
+</AnchorPane>
